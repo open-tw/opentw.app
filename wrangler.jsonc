@@ -1,0 +1,15 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "opentw-app",
+  "compatibility_date": "2026-09-01",
+  // 純靜態網站：不需要 Worker script，Cloudflare 直接提供 ./public 內的檔案
+  "assets": {
+    "directory": "./public",
+    "html_handling": "auto-trailing-slash",
+    "not_found_handling": "404-page"
+  },
+  // 綁定自訂網域（需已在 Cloudflare 託管 opentw.app 的 DNS）
+  "routes": [
+    { "pattern": "opentw.app", "custom_domain": true }
+  ]
+}
